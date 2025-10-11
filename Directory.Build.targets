@@ -1,0 +1,29 @@
+<Project>
+  <Choose>
+    <When Condition="$(IsPackable) == true">
+      <!-- Package License Information -->
+      <PropertyGroup>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+      </PropertyGroup>
+      <ItemGroup>
+        <None Include="$(MSBuildThisFileDirectory)LICENSE" Pack="true" PackagePath="" />
+      </ItemGroup>
+
+      <!-- Source Link -->
+      <ItemGroup>
+        <SourceRoot Include="$(MSBuildThisFileDirectory)/" />
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+      </ItemGroup>
+      <PropertyGroup>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+      </PropertyGroup>
+
+      <!-- Automatically create NuGet packages during release builds -->
+      <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+      </PropertyGroup>
+    </When>
+  </Choose>
+</Project>

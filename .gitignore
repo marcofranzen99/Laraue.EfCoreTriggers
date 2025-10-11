@@ -244,3 +244,5 @@ tests/*/migrations/*
 
 *.db
 .idea
+
+out/
