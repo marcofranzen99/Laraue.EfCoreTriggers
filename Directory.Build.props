@@ -1,11 +1,13 @@
 <Project>
   <PropertyGroup>
+    <DefaultTFMs>netstandard2.1;net6.0;net8.0;net9.0</DefaultTFMs>
     <LangVersion>Latest</LangVersion>
     <Copyright>Ilya Belyanskiy 2020</Copyright>
     <Authors>Belyanskiy Ilya</Authors>
     <PackageProjectUrl>https://github.com/win7user10/Laraue.EfCoreTriggers</PackageProjectUrl>
     <!-- Designate all projects as non-package projects by default -->
     <IsPackable>false</IsPackable>
+    <PackageOutputPath>$(MSBuildThisFileDirectory)out\packages\</PackageOutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
